@@ -1,0 +1,281 @@
+{
+  "info": {
+    "name": "Gama3li Shokran API - Milestone 1",
+    "_postman_id": "e6c1e9da-0000-4b2e-9f00-000000000001",
+    "description": "Postman collection for Gama3li Shokran backend (Milestone 1)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"testuser\",\n  \"email\": \"user@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/users/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "register"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/users/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "login"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Gam3ya",
+      "item": [
+        {
+          "name": "Create Gam3ya",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"January Pool\",\n  \"monthlyAmount\": 500,\n  \"maxMembers\": 10\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/gam3ya",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "gam3ya"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Gam3yas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/gam3ya",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "gam3ya"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Join Gam3ya",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"{{user_id}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/gam3ya/{{gam3ya_id}}/join",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "gam3ya",
+                "{{gam3ya_id}}",
+                "join"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Positions",
+      "item": [
+        {
+          "name": "Create Position",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gam3yaId\": \"{{gam3ya_id}}\",\n  \"userId\": \"{{user_id}}\",\n  \"positionNumber\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/positions",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "positions"
+              ]
+            }
+          }
+        },
+        {
+          "name": "List Positions For Trade",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/positions/trade",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "positions",
+                "trade"
+              ]
+            }
+          }
+        },
+        {
+          "name": "List Specific Position For Trade",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/positions/{{position_id}}/list",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "positions",
+                "{{position_id}}",
+                "list"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Buy Position",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"newUserId\": \"{{new_user_id}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/positions/{{position_id}}/buy",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "positions",
+                "{{position_id}}",
+                "buy"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Swap Positions",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"position1Id\": \"{{position1_id}}\",\n  \"position2Id\": \"{{position2_id}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/positions/swap",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "positions",
+                "swap"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000"
+    }
+  ]
+}
+
